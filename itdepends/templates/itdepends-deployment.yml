@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itdepends-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: itdepends-app
+  template:
+    metadata:
+      labels:
+        app: itdepends-app
+    spec:
+      containers:
+      - name: {{ .Values.containerName }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        envFrom:
+          - secretRef:
+                name: itdepends-secret  
+        ports:
+        - name: {{ .Values.ports.name }}
+          containerPort:  {{ .Values.ports.containerPort }}
+       
+
+        

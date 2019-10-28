@@ -1,0 +1,22 @@
+replicaCount: 1
+containerName: itdepends-container
+
+image:
+  repository: ddziub/k8s.helm.test
+  tag: latest
+  pullPolicy: Always
+
+ports:
+  name: itdepends-port
+  containerPort: 80
+
+service:
+  name: itdepends-service
+  port: 80
+  targetPort: itdepends-port
+  appSelector: itdepends-app
+
+settings:
+  mongo__ConnectionString: default conString from helm
+  mongo__DatabaseName: default db name from helm
+  ASPNETCORE_ENVIRONMENT: Production
