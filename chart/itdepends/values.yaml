@@ -1,0 +1,21 @@
+replicaCount: 3
+containerName: itdepends-container
+
+image:
+  repository: ddziub/k8s.helm.test
+  tag: latest
+  pullPolicy: Always
+
+ports:
+  name: itdepends-port
+  containerPort: 80
+
+service:
+  name: itdepends-service
+  port: 80
+  targetPort: itdepends-port
+  appSelector: itdepends-app
+
+settings:
+  mongoConnectionString: default conString from helm
+  mongoDatabaseName: default db name from helm
