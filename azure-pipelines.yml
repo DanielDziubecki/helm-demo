@@ -16,7 +16,7 @@ steps:
 - script: |
    ls
    helm lint ./itdepends
-   helm package
+   helm package ./itdepends
 
 
 
