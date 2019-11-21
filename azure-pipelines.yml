@@ -13,4 +13,9 @@ steps:
 - script: choco install kubernetes-helm
   displayName: 'Installing helm'
 
+- script: |
+   helm lint
+   helm package
+
+
 
