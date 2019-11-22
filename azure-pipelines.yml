@@ -18,15 +18,11 @@ steps:
    helm lint ./itdepends
    helm package ./itdepends
 
-
-
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'Visual Studio Professional(c44b2ca1-130b-4ada-9105-53665aeef40e)'
-    scriptType: 'batch'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-         call az acr helm repo add --name itdepends
-         call az acr helm push itdepends
+    scriptType: 'ps'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'pushToRepo.ps1'
     addSpnToEnvironment: true
     failOnStandardError: true
