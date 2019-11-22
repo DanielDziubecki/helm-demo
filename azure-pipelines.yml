@@ -20,7 +20,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Visual Studio Professional(c44b2ca1-130b-4ada-9105-53665aeef40e)'
+    azureSubscription: ''
     scriptType: 'ps'
     scriptLocation: 'scriptPath'
     scriptPath: 'pushToRepo.ps1'
