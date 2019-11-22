@@ -26,8 +26,8 @@ steps:
     scriptType: 'batch'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az configure --defaults acr=itdepends
-      az acr helm repo add
-      az acr helm push itdepends
+         az configure --defaults acr=itdepends
+         az acr helm repo add
+         az acr helm push itdepends
     addSpnToEnvironment: true
     failOnStandardError: true
