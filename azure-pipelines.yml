@@ -20,3 +20,14 @@ steps:
 
 
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Visual Studio Professional(c44b2ca1-130b-4ada-9105-53665aeef40e)'
+    scriptType: 'batch'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az configure --defaults acr=itdepends
+      az acr helm repo add
+      az acr helm push itdepends
+    addSpnToEnvironment: true
+    failOnStandardError: true
