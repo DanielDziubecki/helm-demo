@@ -14,6 +14,7 @@ steps:
    helm package ./itdepends
 
 - task: PowerShell@2
+  displayName: 'Push to helm repo'
   inputs:
     filePath: 'pushToRepo.ps1'
     failOnStderr: true
