@@ -18,11 +18,11 @@ steps:
    helm lint ./itdepends
    helm package ./itdepends
 
-- task: AzureCLI@2
+- task: PowerShell@2
   inputs:
-    azureSubscription: ''
-    scriptType: 'ps'
-    scriptLocation: 'scriptPath'
-    scriptPath: 'pushToRepo.ps1'
-    addSpnToEnvironment: true
-    failOnStandardError: true
+    filePath: 'pushToRepo.ps1'
+    failOnStderr: true
+  env:
+   'SERVICEPRINCIPALID': $(SERVICEPRINCIPALID)
+   'SERVICEPRINCIPALKEY': $(SERVICEPRINCIPALKEY)
+   'SERVICEPRINCIPALTENANTID': $(SERVICEPRINCIPALTENANTID)
