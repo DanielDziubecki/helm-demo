@@ -24,3 +24,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'find . -name *.tgz'
+    addSpnToEnvironment: true
+    failOnStandardError: true
