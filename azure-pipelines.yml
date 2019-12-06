@@ -18,3 +18,9 @@ steps:
 - script: |
     helm package ./itdepends
   displayName: 'Packaging helm'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'HelmPublish'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'find . -name *.tgz'
