@@ -25,6 +25,6 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az acr helm repo add --name itdepends
-      package= find -name *.tgz
+      package="$(find -name *.tgz)"
       az acr helm push --name itdepends $package
     failOnStandardError: true
