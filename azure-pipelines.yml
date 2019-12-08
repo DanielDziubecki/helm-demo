@@ -23,5 +23,5 @@ steps:
     azureSubscription: 'HelmPublish'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az acr helm repo add --name itdepends && az acr helm push --name itdepends find . -name *.tgz'
+    inlineScript: 'az acr helm repo add --name itdepends && az acr helm push --name itdepends find -name *.tgz'
     failOnStandardError: true
