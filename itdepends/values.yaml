@@ -6,6 +6,10 @@ image:
   tag: latest
   pullPolicy: Always
 
+registry:
+  username: x
+  password: x
+
 ports:
   name: itdepends-port
   containerPort: 80
