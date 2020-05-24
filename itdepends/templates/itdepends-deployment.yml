@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: itdepends-deployment
@@ -16,16 +16,14 @@ spec:
       - name: {{ .Values.containerName }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        imageCredentials:
-          registry: {{ .Values.image.repository }}
-          username: {{ .Values.registry.username }}
-          password: {{ .Values.registry.password }}
-          envFrom:
+        envFrom:
           - secretRef:
                 name: itdepends-secret  
         ports:
         - name: {{ .Values.ports.name }}
           containerPort:  {{ .Values.ports.containerPort }}
+      imagePullSecrets:
+       - name: {{ .Values.image.imagePullSecrets }}
        
 
         

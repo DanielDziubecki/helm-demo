@@ -1,14 +1,12 @@
 replicaCount: 3
 containerName: itdepends-container
 
-image:
-  repository: ddziub/k8s.helm.test
-  tag: latest
-  pullPolicy: Always
 
-registry:
-  username: x
-  password: x
+image:
+  repository: itdepends.azurecr.io/itdepends
+  tag: 62
+  pullPolicy: IfNotPresent
+  imagePullSecrets: itdepends-acr-pull-secret
 
 ports:
   name: itdepends-port
